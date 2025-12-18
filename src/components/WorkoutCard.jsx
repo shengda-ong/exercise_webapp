@@ -40,9 +40,10 @@ const WorkoutCard = ({ title, duration, intensity, image, instructor }) => {
                 </div>
 
                 {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/20 backdrop-blur-[2px]">
-                    <div className="w-16 h-16 rounded-full bg-neon-coral flex items-center justify-center shadow-[0_0_30px_rgba(255,107,107,0.6)] transform scale-50 group-hover:scale-100 transition-transform duration-300">
-                        <Play className="w-8 h-8 text-white fill-white ml-1" />
+                {/* Play Button Overlay */}
+                <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-10">
+                    <div className="w-12 h-12 rounded-full bg-neon-coral flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.5)] hover:scale-110 active:scale-95 transition-transform duration-200">
+                        <Play className="w-6 h-6 text-black fill-black ml-1" />
                     </div>
                 </div>
             </div>
