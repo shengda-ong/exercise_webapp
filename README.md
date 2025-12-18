@@ -1,50 +1,80 @@
 # Tempo - Fitness Web App
 
-![Tempo App Screenshot](./public/home.png)
+<div align="center">
+  <img src="./public/home.png" alt="Tempo Home Screen" width="100%" />
+</div>
 
-**Tempo** is a conceptual, high-end fitness application designed with a "Dark Mode Glassmorphism" aesthetic. It aims to motivate users through a visually immersed interface that combines the energy of music with the discipline of fitness. "Your Body. Your Beat."
+<div align="center">
+  <h3>Your Body. Your Beat.</h3>
+  <p>Tempo is a premium fitness application that fuses high-energy workouts with a rhythmic, immersive interface.</p>
+</div>
 
-## 🚀 Features
+---
 
-- **Immersive Interface**: A persistent, Spotify-inspired layout that maximizes content visibility.
-- **Glassmorphism Design**: Extensive use of simple, elegant gradients and backdrop blurs to create depth and hierarchy.
-- **Interactive "Active Coach"**: A floating bottom player bar that acts as a workout companion, featuring progress tracking, playback controls, and a dedicated "Form Guide".
-- **Dynamic Content**: A grid of high-quality workout cards that respond to user interaction with subtle animations.
-- **Responsive Layout**: Adapts gracefully from desktop to tablet views.
+## ⚡ Overview
 
-## 🛠️ Technology Stack
+**Tempo** is a conceptual React web application designed with a **"Dark Mode Glassmorphism"** aesthetic. It moves away from sterile, white-walled fitness apps, instead offering a nightclub-inspired environment where fitness feels like an event, not a chore.
 
-- **React**: Core UI library for component-based architecture.
-- **Vite**: Next-generation frontend tooling for fast development and build.
-- **Tailwind CSS**: Utility-first CSS framework for rapid, custom styling.
-- **Framer Motion**: Production-ready animation library for React.
-- **Lucide React**: Beautiful, consistent icon set.
+The interface prioritizes depth, motion, and clarity, using deep charcoal backgrounds, electric teal accents, and subtle blur effects to create a focused workout space.
+
+## 🚀 Key Features
+
+### 🎛️ Dynamic Dashboard
+- **Personalized Content**: "Made for You" mixes and "Recently Played" sections that horizontally scroll (Spotify-style).
+- **Time-Aware Greeting**: Dynamic welcome message based on the time of day.
+- **Smart Assets**: Optimized local asset loading for instant visual feedback.
+
+### 📅 Workout Calendar (New!)
+<div align="center">
+  <img src="./public/workoutplan.png" alt="Tempo Workout Calendar" width="100%" />
+</div>
+
+- **Monthly Overview**: Visual calendar to track scheduled sessions.
+- **Auto-Scroll Focus**: Automatically scrolls to the current day so you never miss a beat.
+- **Smart Layout**: Optimized 6-row grid that adapts to screen height without cutting off dates.
+- **Sync Ready**: Placeholder functionality for external calendar synchronization.
+
+### 🎧 Immersive "active" Player
+- **Global Context**: A persistent bottom player bar that follows you (except on the Plan page).
+- **Workout Companion**: Acts as your coach, displaying workout progress, current track, and volume controls.
+- **Intelligent Routing**: Automatically hides on specific pages (like the Calendar) to maximize screen real estate.
+
+## 🛠️ Tech Stack
+
+- **Core**: [React](https://reactjs.org/) (Vite)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Routing**: [React Router](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Motion**: [Framer Motion](https://www.framer.com/motion/)
 
 ## 📦 Getting Started
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/shengda-ong/exercise_webapp.git
-   ```
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/shengda-ong/exercise_webapp.git
+    ```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+3.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
 
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
+4.  **Build for production**
+    ```bash
+    npm run build
+    ```
 
-## 🎨 Design Philosophy
+## 🎨 Design System
 
-Tempo breaks away from sterile fitness apps by adopting a "night mode" first approach. The use of neon coral and electric teal against deep charcoal backgrounds evokes the feeling of a late-night gym session or a high-energy dance studio.
+Tempo's design system is built on three core pillars:
+
+1.  **Depth**: Layers of semi-transparent backgrounds (`bg-white/5`) create visual hierarchy.
+2.  **Energy**: "Electric Teal" (`#4ecdc4`) and "Neon Coral" (`#ff6b6b`) provide high-contrast calls to action.
+3.  **Focus**: Unnecessary chrome is removed; content takes center stage.
 
 ---
-*Created for the Advanced Agentic Coding Project.*
