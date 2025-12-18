@@ -3,9 +3,34 @@ import WorkoutCard from './WorkoutCard';
 import HorizontalSection from './HorizontalSection';
 import { Search, Bell, Mic, Settings } from 'lucide-react';
 
+// Assets
+import hiitImg from '../assets/images/hiit.png';
+import yogaImg from '../assets/images/yoga.png';
+
+import workoutData from '../data/dashboard.json';
+
 const Dashboard = () => {
     const [greeting, setGreeting] = useState('Good Morning');
-    const [user, setUser] = useState({ name: "Sheng Da Ong" }); // Placeholder for user data
+    const [user, setUser] = useState({ name: "Sheng Da Ong" });
+
+    // Image mapping
+    const imageMap = {
+        'hiit': hiitImg,
+        'yoga': yogaImg
+    };
+
+    // Helper to process data with images
+    const processData = (data) => {
+        return data.map(item => ({
+            ...item,
+            image: imageMap[item.imageKey] || hiitImg // Fallback to hiit if key not found
+        }));
+    };
+
+    const recentlyPlayed = processData(workoutData.recentlyPlayed);
+    const madeForYou = processData(workoutData.madeForYou);
+    const topMixes = processData(workoutData.topMixes);
+    const recommended = processData(workoutData.recommended);
 
     useEffect(() => {
         const hour = new Date().getHours();
@@ -13,211 +38,6 @@ const Dashboard = () => {
         else if (hour < 18) setGreeting('Good Afternoon');
         else setGreeting('Good Evening');
     }, []);
-
-    const recentlyPlayed = [
-        {
-            id: 'rp1',
-            title: "Full Body Crush",
-            duration: 45,
-            intensity: "High",
-            instructor: "Sarah K.",
-            image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'rp2',
-            title: "Morning Yoga",
-            duration: 20,
-            intensity: "Low",
-            instructor: "Emma W.",
-            image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'rp3',
-            title: "HIIT Tabata",
-            duration: 15,
-            intensity: "High",
-            instructor: "Mike T.",
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'rp4',
-            title: "Core Blaster",
-            duration: 10,
-            intensity: "Med",
-            instructor: "Jenna R.",
-            image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'rp5',
-            title: "Evening Stretch",
-            duration: 15,
-            intensity: "Low",
-            instructor: "Alice M.",
-            image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'rp6',
-            title: "Quick HIIT",
-            duration: 12,
-            intensity: "High",
-            instructor: "Tom B.",
-            image: "https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2074&auto=format&fit=crop"
-        }
-
-    ];
-
-    const madeForYou = [
-        {
-            id: 'mf1',
-            title: "Daily Mix 1",
-            duration: 30,
-            intensity: "Med",
-            instructor: "Mixed for You",
-            image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'mf2',
-            title: "Discover Weekly",
-            duration: 45,
-            intensity: "Var",
-            instructor: "New & Fresh",
-            image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'mf3',
-            title: "Release Radar",
-            duration: 25,
-            intensity: "High",
-            instructor: "Latest Drops",
-            image: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'mf4',
-            title: "On Repeat",
-            duration: 60,
-            intensity: "Low",
-            instructor: "Your Faves",
-            image: "https://images.unsplash.com/photo-1534258936925-c48947b6bf02?q=80&w=2066&auto=format&fit=crop"
-        },
-        {
-            id: 'mf5',
-            title: "Late Night Lo-Fi",
-            duration: 50,
-            intensity: "Low",
-            instructor: "Chill Beats",
-            image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'mf6',
-            title: "Workout Tapes",
-            duration: 40,
-            intensity: "High",
-            instructor: "Pump It",
-            image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop"
-        }
-    ];
-
-    const topMixes = [
-        {
-            id: 'tm1',
-            title: "Pop Mix",
-            duration: 20,
-            intensity: "Med",
-            instructor: "Hits",
-            image: "https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'tm2',
-            title: "Rock Classics",
-            duration: 35,
-            intensity: "High",
-            instructor: "Legends",
-            image: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'tm3',
-            title: "Chill Vibes",
-            duration: 40,
-            intensity: "Low",
-            instructor: "Relax",
-            image: "https://images.unsplash.com/photo-1445985543470-4102966bf35f?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'tm4',
-            title: "Focus Flow",
-            duration: 50,
-            intensity: "Low",
-            instructor: "Deep Work",
-            image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'tm5',
-            title: "Metal Mix",
-            duration: 25,
-            intensity: "High",
-            instructor: "Intense",
-            image: "https://images.unsplash.com/photo-1520638023360-6def43369781?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 'tm6',
-            title: "Indie Gems",
-            duration: 35,
-            intensity: "Med",
-            instructor: "Discovery",
-            image: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2070&auto=format&fit=crop"
-        }
-    ];
-
-    const recommended = [
-        {
-            id: 1,
-            title: "HIIT Blast",
-            duration: 20,
-            intensity: "High",
-            instructor: "Sarah K.",
-            image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop"
-        },
-        {
-            id: 2,
-            title: "Core Crusher",
-            duration: 15,
-            intensity: "Med",
-            instructor: "Mike T.",
-            image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 3,
-            title: "Upper Power",
-            duration: 30,
-            intensity: "High",
-            instructor: "Alex S.",
-            image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop"
-        },
-        {
-            id: 5,
-            title: "Leg Day",
-            duration: 40,
-            intensity: "High",
-            instructor: "Jenna R.",
-            image: "https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=2074&auto=format&fit=crop"
-        },
-        {
-            id: 6,
-            title: "Cardio Kick",
-            duration: 25,
-            intensity: "High",
-            instructor: "David L.",
-            image: "https://images.unsplash.com/photo-1534258936925-c48947b6bf02?q=80&w=2066&auto=format&fit=crop"
-        },
-        {
-            id: 7,
-            title: "Power Yoga",
-            duration: 60,
-            intensity: "Med",
-            instructor: "Anna K.",
-            image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?q=80&w=2070&auto=format&fit=crop"
-        }
-    ];
 
     return (
         <main className="flex-1 ml-64 p-8 lg:p-10 pb-32 min-h-screen bg-gradient-to-b from-[#1E1E1E] to-[#121212]">

@@ -1,0 +1,202 @@
+{
+    "recentlyPlayed": [
+        {
+            "id": "rp1",
+            "title": "Full Body Crush",
+            "duration": 45,
+            "intensity": "High",
+            "instructor": "Sarah K.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "rp2",
+            "title": "Morning Yoga",
+            "duration": 20,
+            "intensity": "Low",
+            "instructor": "Emma W.",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "rp3",
+            "title": "HIIT Tabata",
+            "duration": 15,
+            "intensity": "High",
+            "instructor": "Mike T.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "rp4",
+            "title": "Core Blaster",
+            "duration": 10,
+            "intensity": "Med",
+            "instructor": "Jenna R.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "rp5",
+            "title": "Evening Stretch",
+            "duration": 15,
+            "intensity": "Low",
+            "instructor": "Alice M.",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "rp6",
+            "title": "Quick HIIT",
+            "duration": 12,
+            "intensity": "High",
+            "instructor": "Tom B.",
+            "imageKey": "hiit"
+        }
+    ],
+    "madeForYou": [
+        {
+            "id": "mf1",
+            "title": "Daily Mix 1",
+            "duration": 30,
+            "intensity": "Med",
+            "instructor": "Mixed for You",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "mf2",
+            "title": "Discover Weekly",
+            "duration": 45,
+            "intensity": "Var",
+            "instructor": "New & Fresh",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "mf3",
+            "title": "Release Radar",
+            "duration": 25,
+            "intensity": "High",
+            "instructor": "Latest Drops",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "mf4",
+            "title": "On Repeat",
+            "duration": 60,
+            "intensity": "Low",
+            "instructor": "Your Faves",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "mf5",
+            "title": "Late Night Lo-Fi",
+            "duration": 50,
+            "intensity": "Low",
+            "instructor": "Chill Beats",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "mf6",
+            "title": "Workout Tapes",
+            "duration": 40,
+            "intensity": "High",
+            "instructor": "Pump It",
+            "imageKey": "hiit"
+        }
+    ],
+    "topMixes": [
+        {
+            "id": "tm1",
+            "title": "Pop Mix",
+            "duration": 20,
+            "intensity": "Med",
+            "instructor": "Hits",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "tm2",
+            "title": "Rock Classics",
+            "duration": 35,
+            "intensity": "High",
+            "instructor": "Legends",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "tm3",
+            "title": "Chill Vibes",
+            "duration": 40,
+            "intensity": "Low",
+            "instructor": "Relax",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "tm4",
+            "title": "Focus Flow",
+            "duration": 50,
+            "intensity": "Low",
+            "instructor": "Deep Work",
+            "imageKey": "yoga"
+        },
+        {
+            "id": "tm5",
+            "title": "Metal Mix",
+            "duration": 25,
+            "intensity": "High",
+            "instructor": "Intense",
+            "imageKey": "hiit"
+        },
+        {
+            "id": "tm6",
+            "title": "Indie Gems",
+            "duration": 35,
+            "intensity": "Med",
+            "instructor": "Discovery",
+            "imageKey": "yoga"
+        }
+    ],
+    "recommended": [
+        {
+            "id": 1,
+            "title": "HIIT Blast",
+            "duration": 20,
+            "intensity": "High",
+            "instructor": "Sarah K.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": 2,
+            "title": "Core Crusher",
+            "duration": 15,
+            "intensity": "Med",
+            "instructor": "Mike T.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": 3,
+            "title": "Upper Power",
+            "duration": 30,
+            "intensity": "High",
+            "instructor": "Alex S.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": 5,
+            "title": "Leg Day",
+            "duration": 40,
+            "intensity": "High",
+            "instructor": "Jenna R.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": 6,
+            "title": "Cardio Kick",
+            "duration": 25,
+            "intensity": "High",
+            "instructor": "David L.",
+            "imageKey": "hiit"
+        },
+        {
+            "id": 7,
+            "title": "Power Yoga",
+            "duration": 60,
+            "intensity": "Med",
+            "instructor": "Anna K.",
+            "imageKey": "yoga"
+        }
+    ]
+}
