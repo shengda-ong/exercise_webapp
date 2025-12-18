@@ -5,6 +5,27 @@ import { motion } from 'framer-motion';
 const PlayerBar = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isFormGuideOn, setIsFormGuideOn] = useState(false);
+    const [currentTime, setCurrentTime] = useState(260); // Start at 4:20
+    const [duration] = useState(720); // 12:00
+    const [volume, setVolume] = useState(70);
+
+    // Format seconds to MM:SS
+    const formatTime = (seconds) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    // Simulate playback
+    React.useEffect(() => {
+        let interval;
+        if (isPlaying) {
+            interval = setInterval(() => {
+                setCurrentTime((prev) => (prev < duration ? prev + 1 : 0));
+            }, 1000);
+        }
+        return () => clearInterval(interval);
+    }, [isPlaying, duration]);
 
     return (
         <motion.div
@@ -53,23 +74,56 @@ const PlayerBar = () => {
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="w-full max-w-md flex items-center gap-3 text-xs font-mono text-gray-400">
-                        <span>04:20</span>
-                        <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
-                            <div className="h-full w-[35%] bg-electric-teal rounded-full relative">
-                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform" />
+                    <div className="w-full max-w-md flex items-center gap-3 text-xs font-mono text-gray-400 group select-none">
+                        <span>{formatTime(currentTime)}</span>
+                        <div className="flex-1 h-1.5 relative flex items-center">
+                            {/* Track Background */}
+                            <div className="absolute inset-0 bg-white/10 rounded-full" />
+
+                            {/* Fill */}
+                            <div
+                                className="absolute left-0 top-0 bottom-0 bg-electric-teal rounded-full"
+                                style={{ width: `${(currentTime / duration) * 100}%` }}
+                            >
+                                {/* Thumb */}
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform translate-x-1.5" />
                             </div>
+
+                            {/* Range Input Overlay */}
+                            <input
+                                type="range"
+                                min="0"
+                                max={duration}
+                                value={currentTime}
+                                onChange={(e) => setCurrentTime(Number(e.target.value))}
+                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
                         </div>
-                        <span>12:00</span>
+                        <span>{formatTime(duration)}</span>
                     </div>
                 </div>
 
                 {/* Right: Options */}
                 <div className="flex items-center justify-end gap-6 w-1/4">
-                    <div className="flex items-center gap-2 group">
+                    <div className="flex items-center gap-2 group relative">
                         <Volume2 className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-                        <div className="w-20 h-1 bg-white/10 rounded-full">
-                            <div className="h-full w-2/3 bg-white rounded-full" />
+                        <div className="w-20 h-1 relative flex items-center">
+                            {/* Track */}
+                            <div className="absolute inset-0 bg-white/10 rounded-full" />
+                            {/* Fill */}
+                            <div
+                                className="absolute left-0 top-0 bottom-0 bg-white rounded-full"
+                                style={{ width: `${volume}%` }}
+                            />
+
+                            <input
+                                type="range"
+                                min="0"
+                                max="100"
+                                value={volume}
+                                onChange={(e) => setVolume(Number(e.target.value))}
+                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                            />
                         </div>
                     </div>
 
