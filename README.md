@@ -1,6 +1,6 @@
 # Tempo - Fitness Web App
 
-![Tempo App Screenshot](./public/screenshot.png)
+![Tempo App Screenshot](./public/home.png)
 
 **Tempo** is a conceptual, high-end fitness application designed with a "Dark Mode Glassmorphism" aesthetic. It aims to motivate users through a visually immersed interface that combines the energy of music with the discipline of fitness. "Your Body. Your Beat."
 

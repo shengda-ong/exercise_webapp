@@ -1,16 +1,18 @@
 import React from 'react';
 import { Home, Compass, Calendar, Activity, User, Settings } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
+    const location = useLocation();
+
     const menuItems = [
-        { icon: Home, label: 'Home', active: true },
-        { icon: Calendar, label: 'Workout Plan', active: false },
-        { icon: Activity, label: 'Progress', active: false },
+        { icon: Home, label: 'Home', path: '/' },
+        { icon: Calendar, label: 'Workout Plan', path: '/plan' },
+        { icon: Activity, label: 'Progress', path: '#' },
     ];
 
     return (
         <aside className="w-64 h-screen fixed left-0 top-0 bg-[#121212] border-r border-white/5 flex flex-col z-40">
-            {/* Branding */}
             {/* Branding */}
             <div className="p-8 pb-4">
                 <a href="/" className="block group">
@@ -24,21 +26,25 @@ const Sidebar = () => {
 
             {/* Navigation */}
             <nav className="flex-1 px-4 py-6 space-y-2">
-                {menuItems.map((item) => (
-                    <button
-                        key={item.label}
-                        className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${item.active
-                            ? 'bg-gradient-to-r from-electric-teal/20 to-transparent text-electric-teal'
-                            : 'text-gray-400 hover:bg-white/5 hover:text-white'
-                            }`}
-                    >
-                        <item.icon className={`w-5 h-5 ${item.active ? 'text-electric-teal' : 'text-gray-400 group-hover:text-white'}`} />
-                        <span className="font-medium">{item.label}</span>
-                        {item.active && (
-                            <div className="ml-auto w-1 h-1 rounded-full bg-electric-teal shadow-[0_0_8px_rgba(78,205,196,0.8)]" />
-                        )}
-                    </button>
-                ))}
+                {menuItems.map((item) => {
+                    const isActive = location.pathname === item.path;
+                    return (
+                        <Link
+                            to={item.path}
+                            key={item.label}
+                            className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${isActive
+                                ? 'bg-gradient-to-r from-electric-teal/20 to-transparent text-electric-teal'
+                                : 'text-gray-400 hover:bg-white/5 hover:text-white'
+                                }`}
+                        >
+                            <item.icon className={`w-5 h-5 ${isActive ? 'text-electric-teal' : 'text-gray-400 group-hover:text-white'}`} />
+                            <span className="font-medium">{item.label}</span>
+                            {isActive && (
+                                <div className="ml-auto w-1 h-1 rounded-full bg-electric-teal shadow-[0_0_8px_rgba(78,205,196,0.8)]" />
+                            )}
+                        </Link>
+                    )
+                })}
             </nav>
 
             {/* General Settings */}
